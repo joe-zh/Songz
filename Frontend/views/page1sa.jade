@@ -1,0 +1,58 @@
+// Jade file for query
+// Inherits from layout
+extend layout
+block navbarcontent
+    +nav_item("/") Home
+    +nav_item("/page1") Music dataset
+    +nav_item("/page2") Last.fm dataset
+    
+block content
+  p
+    |  #{title}:
+  // Create a table with one row per result
+  form(method="get", action="/page1sa")
+  p
+    table
+      tr
+          td="Name"
+          td &nbsp;
+          td &nbsp;
+          td="Facebook"
+          td &nbsp;
+          td &nbsp;
+          td="Twitter"
+          td &nbsp;
+          td &nbsp;
+          td="Website"
+          td &nbsp;
+          td &nbsp;
+          td="Genre"
+          td &nbsp;
+          td &nbsp;
+          td="Mtv"
+          td &nbsp;
+      - for (var inx = 0; inx < results.length; inx++)
+        tr
+          td=results[inx].name
+          td &nbsp;
+          td &nbsp;
+          td=results[inx].facebook
+          td &nbsp;
+          td &nbsp;
+          td=results[inx].twitter
+          td &nbsp;
+          td &nbsp;
+          td=results[inx].website
+          td &nbsp;
+          td &nbsp;
+          td=results[inx].genre
+          td &nbsp;
+          td &nbsp;
+          td=results[inx].mtv
+          td &nbsp;
+  // Put a click button that lets us return to the index page 
+  form(method='get', action='/')
+      input(type='submit', value='Home')
+  // Put a click button that lets us return back to serach page
+  form(method='get', action='/page1')
+      input(type='submit', value='Back')

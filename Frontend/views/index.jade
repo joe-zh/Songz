@@ -1,0 +1,23 @@
+// Inherits from layout 
+extend layout
+// Then we produce a form that triggers /actor once
+// the user hits Submit
+block navbarcontent
+    +nav_item("/") Home
+    +nav_item("/page1") Music dataset
+    +nav_item("/page2") Last.fm dataset
+block content
+  .container
+    p Go to one of the pages to perform a search and it will take you to the results page. 
+
+    br
+
+    p Go to Music dataset
+    form(method="get", action="/page1")
+      input(type='submit',value='Music Dataset')
+
+    br
+
+    p Go to Last.fm dataset
+    form(method="get", action="/page2")
+      input(type='submit',value='Last.fm Dataset')

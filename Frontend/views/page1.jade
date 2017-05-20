@@ -1,0 +1,44 @@
+// Inherits from layout 
+extend layout
+// Then we produce a form that triggers /person once
+// the user hits Submit
+block navbarcontent
+    +nav_item("/") Home
+    +nav_item("/page1") Music dataset
+    +nav_item("/page2") Last.fm dataset
+block content
+  p Search for an Artist
+  form(method="get", action="/page1sa")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Artist')
+
+  p Search for Similar Artists
+  form(method="get", action="/page1ssa")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Similar Artist')
+
+  p Search for Song
+  form(method="get", action="/page1sfs")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Song')
+
+
+  p Search for an Album
+  form(method="get", action="/page1salb")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Album')
+
+  p Search for Similar Songs
+  form(method="get", action="/page1sss")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Similar Songs')
+
+  p Search for Count of Similar Songs
+  form(method="get", action="/page1ssscount")
+    input(name='user_quer', value='')
+    input(type='submit', value='Get Count of Similar Songs')
+
+
+  // Put a click button that lets us return to the index page 
+  form(method='get', action='/')
+      input(type='submit', value='Home')
